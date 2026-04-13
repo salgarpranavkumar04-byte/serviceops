@@ -1,0 +1,57 @@
+/* ServiceOps Admin — Global styles (production) */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg0: #ffffff;
+  --bg1: #ffffff;
+  --bg2: #ffffff;
+  --bg3: #e5e7eb;
+  --bg4: #d1d5db;
+
+  --t0:  #111827;
+  --t1:  #1f2937;
+  --t2:  #374151;
+  --t3:  #6b7280;
+  --t4:  #9ca3af;
+  --t5:  #d1d5db;
+
+  --border: #e5e7eb;
+  --radius: 4px;
+
+  --font-mono: ui-monospace, 'Courier New', monospace;
+  --font-main: 'Times New Roman', Times, serif;
+}
+
+html, body, #root {
+  height: 100%;
+  background: #f9fafb;
+  color: var(--t0);
+  font-family: var(--font-main);
+  font-size: 14px;
+}
+
+.mono { font-family: var(--font-mono) !important; }
+
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--bg4); border-radius: 3px; }
+
+input, select, button, textarea {
+  font-family: var(--font-main);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+.pulse { animation: pulse 1.8s ease-in-out infinite; }
+
+@media (max-width: 640px) {
+  .mobile-menu { display: flex !important; }
+}

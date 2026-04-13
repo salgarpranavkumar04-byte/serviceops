@@ -1,0 +1,37 @@
+{
+  "name": "serviceops",
+  "version": "5.1.0",
+  "description": "ServiceOps backend — production-hardened v5.1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
+    "worker:messages": "node workers/messageWorker.js",
+    "worker:jobs": "node workers/jobWorker.js",
+    "worker:whatsapp": "node workers/whatsappWorker.js",
+    "cluster:start": "mkdir -p logs && pm2 start ecosystem.config.js",
+    "cluster:stop": "pm2 stop ecosystem.config.js",
+    "cluster:restart": "pm2 restart ecosystem.config.js",
+    "cluster:reload": "pm2 reload serviceops-server",
+    "cluster:logs": "pm2 logs --lines 100",
+    "cluster:status": "pm2 status",
+    "cluster:delete": "pm2 delete ecosystem.config.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "bullmq": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "express-rate-limit": "^7.0.0",
+    "helmet": "^7.0.0",
+    "ioredis": "^5.3.0",
+    "pg": "^8.11.0"
+  },
+  "optionalDependencies": {
+    "rate-limit-redis": "^4.2.0"
+  }
+}
